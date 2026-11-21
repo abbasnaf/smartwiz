@@ -21,6 +21,15 @@ A lightweight Windows system tray application for controlling Philips WiZ smart 
 - electron-builder (NSIS Windows installer)
 - Vitest
 
+## Project Structure
+
+- `electron/` - Electron main process, preload bridge, device services, and IPC handlers.
+- `shared/` - Types and IPC channel definitions shared by Electron and the renderer.
+- `src/` - React renderer, pages, controls, state, and styles.
+- `resources/icons/` - Windows app and tray icons.
+- `tests/` - Protocol, client, and configuration tests.
+- `.github/workflows/ci.yml` - CI checks for tests, type checking, build, and dependency audit.
+
 ## Development
 
 ```bash

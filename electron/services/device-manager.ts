@@ -83,7 +83,7 @@ export class DeviceManager extends EventEmitter {
   async refreshDevice(id: string): Promise<DeviceSnapshot | undefined> {
     const snap = this.snapshots.get(id);
     if (!snap) return undefined;
-    this.updateSnapshot(id, { status: snap.state ? 'connecting' : 'connecting', error: undefined });
+    this.updateSnapshot(id, { status: snap.state ? snap.status : 'connecting', error: undefined });
     try {
       const state = await this.client.getPilot(snap.config.ip, { retries: 1 });
       const config = { ...snap.config, mac: state.mac || snap.config.mac, lastSeenAt: new Date().toISOString() };

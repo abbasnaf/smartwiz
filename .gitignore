@@ -3,14 +3,6 @@ dist-electron/
 dist-renderer/
 release/
 .vite/
+coverage/
 *.log
 .DS_Store
-coverage/
-WizAPP/node_modules/
-WizAPP/out/
-WizAPP/dist/
-WizAPP/.vite/
-WizAPP/release/
-WizAPP/*.log
-smoke.out.log
-smoke.err.log
