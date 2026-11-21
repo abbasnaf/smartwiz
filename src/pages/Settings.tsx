@@ -42,6 +42,8 @@ export function SettingsPage() {
   const [refreshIntervalInput, setRefreshIntervalInput] = useState(String(settings.refreshIntervalMs));
   const [udpTimeoutInput, setUdpTimeoutInput] = useState(String(settings.udpTimeoutMs));
   const [preferencesBusy, setPreferencesBusy] = useState(false);
+  const [activeTab, setActiveTab] = useState<'devices' | 'preferences'>('devices');
+  const [showDeviceForm, setShowDeviceForm] = useState(false);
 
   useEffect(() => {
     setDraftSettings(settings);
@@ -90,10 +92,13 @@ export function SettingsPage() {
     setTestedIp(null);
     setTestResult(null);
     setFormError(null);
+    setShowDeviceForm(false);
   };
 
   const selectDiscovered = (device: DiscoveryResult) => {
     const saved = snapshots.find((snapshot) => snapshot.config.ip === device.ip);
+    setShowDeviceForm(true);
+    setActiveTab('devices');
     setEditingId(saved?.config.id ?? null);
     setName(saved?.config.name ?? device.name ?? 'WiZ Bulb');
     setIp(device.ip);
@@ -185,6 +190,8 @@ export function SettingsPage() {
   };
 
   const editDevice = (snapshot: DeviceSnapshot) => {
+    setShowDeviceForm(true);
+    setActiveTab('devices');
     setEditingId(snapshot.config.id);
     setName(snapshot.config.name);
     setIp(snapshot.config.ip);
@@ -322,24 +329,60 @@ export function SettingsPage() {
           </div>
         )}
 
-        <section aria-labelledby="devices-heading" className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+        <nav aria-label="Settings sections" className="flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1">
+          <button
+            type="button"
+            onClick={() => setActiveTab('devices')}
+            aria-current={activeTab === 'devices' ? 'page' : undefined}
+            className={`flex-1 rounded-lg px-3 py-2 text-sm transition ${activeTab === 'devices' ? 'bg-white/10 text-white shadow-sm' : 'text-slate-400 hover:text-white'}`}
+          >
+            Devices
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('preferences')}
+            aria-current={activeTab === 'preferences' ? 'page' : undefined}
+            className={`flex-1 rounded-lg px-3 py-2 text-sm transition ${activeTab === 'preferences' ? 'bg-white/10 text-white shadow-sm' : 'text-slate-400 hover:text-white'}`}
+          >
+            Preferences
+          </button>
+        </nav>
+
+        {activeTab === 'devices' && (
+        <section aria-labelledby="devices-heading" className="settings-panel space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 id="devices-heading" className="text-lg font-medium">Devices</h2>
               <p className="text-sm text-slate-400">{snapshots.length} saved · {snapshots.filter((snapshot) => snapshot.status === 'connected').length} connected</p>
             </div>
-            <button
-              type="button"
-              onClick={() => void discoverDevices()}
-              disabled={discovering}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm hover:bg-white/10 disabled:opacity-50"
-            >
-              {discovering ? <LoaderCircle size={16} className="animate-spin" /> : <Search size={16} />}
-              {discovering ? 'Scanning network…' : 'Discover bulbs'}
-            </button>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => void discoverDevices()}
+                disabled={discovering}
+                className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-200 hover:bg-white/5 disabled:opacity-50"
+              >
+                {discovering ? <LoaderCircle size={16} className="animate-spin" /> : <Search size={16} />}
+                {discovering ? 'Scanning…' : 'Discover'}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (showDeviceForm) clearForm();
+                  else {
+                    clearForm();
+                    setShowDeviceForm(true);
+                  }
+                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-400"
+              >
+                <X size={16} className={showDeviceForm ? 'rotate-45' : ''} />
+                {showDeviceForm ? 'Close' : 'Add device'}
+              </button>
+            </div>
           </div>
 
-          <form
+          {showDeviceForm && <form
             onSubmit={(event) => { event.preventDefault(); void saveDevice(); }}
             className="space-y-3 rounded-xl border border-white/10 bg-slate-950/25 p-4"
             aria-labelledby="device-form-heading"
