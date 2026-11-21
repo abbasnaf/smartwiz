@@ -1,0 +1,180 @@
+{
+  "home": {
+    "title": "Focos",
+    "subtitle": "Gestiona tus focos",
+    "search": "Buscando focos...",
+    "add": {
+      "title": "Agregar dispositivo",
+      "entry": "Agregar",
+      "example": "ej. 192.168.1.34"
+    },
+    "toggle": "Alternar",
+    "selectedBulb": "Foco seleccionado",
+    "edit": {
+      "entry": "Editar nombre",
+      "title": "Editar nombre de la bombilla",
+      "label": "Nuevo nombre",
+      "example": "ej. Sala de estar"
+    },
+    "delete": {
+      "entry": "Eliminar",
+      "title": "Eliminar bombilla",
+      "message": "¿Estás seguro de que deseas eliminar la bombilla "
+    }
+  },
+  "scenes": {
+    "title": "Escenas",
+    "subtitle": "Personaliza la iluminación",
+    "favorites": "Favoritas",
+    "missingFavorites": "Aún no has seleccionado ninguna favorita. Intenta seleccionar una.",
+    "available": "Disponibles",
+    "tags": {
+      "all": "Todas",
+      "static": "Estática",
+      "dynamic": "Dinámica",
+      "custom": "Personalizada"
+    },
+    "notFound": "No se encontraron escenas, prueba con otro término de búsqueda",
+    "search": "Buscar escenas",
+    "custom": {
+      "missing": "No se encontraron colores personalizados. Intenta agregar uno primero.",
+      "fav": "Favorito",
+      "unfav": "Quitar favorito",
+      "add": {
+        "entry": "Agregar",
+        "title": "Agregar color personalizado",
+        "nameLabel": "Nombre",
+        "nameExample": "ej. Rojo",
+        "colorLabel": "Color"
+      },
+      "edit": {
+        "entry": "Editar",
+        "title": "Editar color personalizado",
+        "label": "Nuevo nombre",
+        "example": "ej. Sala de estar"
+      },
+      "delete": {
+        "entry": "Eliminar",
+        "title": "Eliminar color personalizado",
+        "message": "¿Estás seguro de que deseas eliminar el color personalizado "
+      }
+    },
+    "names": {
+      "whites": "Blanco",
+      "warmWhite": "Blanco cálido",
+      "dayLight": "Luz de día",
+      "coldWhite": "Blanco frío",
+      "functional": "Funcional",
+      "nightLight": "Luz Nocturna",
+      "cozy": "Acogedor",
+      "trueColors": "Colores Reales",
+      "relax": "Relax",
+      "focus": "Concentración",
+      "tvTime": "Hora de la TV",
+      "plantGrowth": "Plantas",
+      "candleLight": "Luz de vela",
+      "pulse": "Pulso",
+      "goldenWhite": "Blanco dorado",
+      "steampunk": "Steampunk",
+      "color": "Color",
+      "fireplace": "Chimenea",
+      "fall": "Otoño",
+      "club": "Club",
+      "sunset": "Atardecer",
+      "romance": "Romance",
+      "party": "Fiesta",
+      "pastelColors": "Colores Pastel",
+      "spring": "Primavera",
+      "summer": "Verano",
+      "forest": "Bosque",
+      "jungle": "Jungla",
+      "mojito": "Mojito",
+      "ocean": "Océano",
+      "deepDive": "Inmersión",
+      "christmas": "Navidad",
+      "halloween": "Halloween",
+      "progressive": "Progresivo",
+      "bedtime": "Acostarse",
+      "wakeUp": "Despertarse"
+    }
+  },
+  "information": {
+    "title": "Información",
+    "subtitle": "Información sobre tu sistema de iluminación WiZ",
+    "missing": "No hay información disponible. Intenta conectar una bombilla primero.",
+    "moduleName": "Nombre del módulo",
+    "ip": "Dirección IP",
+    "port": "Puerto",
+    "mac": "Dirección MAC",
+    "state": "Estado",
+    "sceneId": "ID de escena",
+    "firmwareVersion": "Versión del firmware",
+    "homeId": "ID del hogar",
+    "roomId": "ID de la habitación"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "theme": {
+      "title": "Tema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    },
+    "language": {
+      "title": "Idioma",
+      "auto": "Automático",
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "deleteProfile": {
+      "title": "Eliminar perfil",
+      "button": "Eliminar",
+      "description": "¿Estás seguro de que deseas eliminar tu perfil? Esto eliminará todos los datos de tu configuración, escenas personalizadas y favoritos."
+    }
+  },
+  "help": {
+    "title": "Ayuda",
+    "version": "Versión",
+    "source": "Código fuente",
+    "author": "Autor",
+    "checkUpdates": "Buscar actualizaciones",
+    "checkingUpdates": "Buscando actualizaciones...",
+    "openFolder": "Abrir carpeta del programa",
+    "noUpdates": "No hay actualizaciones disponibles"
+  },
+  "sidebar": {
+    "menu": "Menú",
+    "home": "Focos",
+    "scenes": "Escenas",
+    "information": "Información",
+    "settings": "Ajustes",
+    "help": "Ayuda",
+    "brightness": "Brillo"
+  },
+  "modals": {
+    "add": "Agregar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar"
+  },
+  "errors": {
+    "emptyName": "El nombre no puede estar vacío",
+    "longName": "El nombre no puede tener más de 15 caracteres",
+    "sameName": "El nombre no puede ser igual al nombre actual",
+    "emptyIp": "La dirección IP no puede estar vacía",
+    "longIP": "La dirección IP no puede tener más de 15 caracteres",
+    "invalidIP": "Esa no parece una dirección IP válida"
+  },
+  "tray": {
+    "show": "Mostrar",
+    "quit": "Salir",
+    "toggle": "Alternar bombilla"
+  },
+  "toast": {
+    "discoveryFailed": "No se encontraron focos en la red",
+    "retry": "Reintentar",
+    "addSuccess": "Foco agregado correctamente",
+    "addFailed": "No se pudo conectar al foco",
+    "addDuplicate": "Este foco ya está agregado"
+  }
+}

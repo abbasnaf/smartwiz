@@ -1,0 +1,27 @@
+﻿appId: com.smartwiz.wiz-controller
+productName: WiZ Controller
+directories:
+  output: release
+  buildResources: resources/icons
+files:
+  - dist-electron/**
+  - dist-renderer/**
+  - package.json
+extraResources:
+  - from: resources/icons
+    to: resources/icons
+asar: true
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: resources/icons/icon.png
+  artifactName: ${productName}-Setup-${version}.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: WiZ Controller
+publish: null

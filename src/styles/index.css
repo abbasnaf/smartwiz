@@ -1,0 +1,172 @@
+﻿@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --bg-elev: rgba(22, 32, 51, 0.92);
+  --bg-soft: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f7ff;
+  --muted: #9fb0c9;
+  --accent: #7c9cff;
+  --accent2: #4fd1c5;
+  --danger: #ff7b8a;
+  --ok: #4ade80;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: transparent;
+  color: var(--text);
+  overflow: hidden;
+}
+
+* { box-sizing: border-box; }
+
+button {
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease, transform 140ms ease;
+}
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(124, 156, 255, 0.75);
+  outline-offset: 2px;
+}
+
+.popup-shell {
+  height: 100%;
+  padding: 10px;
+}
+
+.popup-card {
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(24,34,54,0.96), rgba(12,18,30,0.96));
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.settings-shell {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: radial-gradient(1200px 600px at top right, rgba(124,156,255,0.12), transparent), var(--bg);
+  color: var(--text);
+}
+
+.range-control {
+  appearance: none;
+  height: 24px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+  transition: opacity 140ms ease;
+}
+
+.range-control:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.range-control::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.range-control::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.range-control--brightness::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #9aaeff 0%, #9aaeff var(--range-progress, 50%), rgba(255, 255, 255, 0.16) var(--range-progress, 50%), rgba(255, 255, 255, 0.16) 100%);
+}
+
+.range-control--brightness::-moz-range-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: #9aaeff;
+}
+
+.range-control--temperature::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #fbbf24, #f8fafc, #60a5fa);
+}
+
+.range-control--temperature::-moz-range-track {
+  background: linear-gradient(to right, #fbbf24, #f8fafc, #60a5fa);
+}
+
+.range-control::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #8da7ff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.range-control--temperature::-webkit-slider-thumb {
+  background: #fbbf24;
+}
+
+.range-control::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #8da7ff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.range-control--temperature::-moz-range-thumb {
+  background: #fbbf24;
+}
+
+.range-control:not(:disabled):hover::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+
+.range-control:not(:disabled):hover::-moz-range-thumb {
+  transform: scale(1.12);
+}
+
+.range-control:focus-visible {
+  outline: none;
+}
+
+.range-control:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(141, 167, 255, 0.25), 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.range-control:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px rgba(141, 167, 255, 0.25), 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
