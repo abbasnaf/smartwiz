@@ -54,7 +54,7 @@ export function DeviceListItem({ snapshot, onSelect }: Props) {
   };
 
   return (
-    <article className="rounded-2xl border border-white/10 bg-white/5 p-3 space-y-2">
+    <article className="rounded-xl border border-white/[0.08] bg-white/[0.035] p-2.5 space-y-2">
       <div className="flex items-center gap-3">
         <div className="min-w-0 flex-1">
           <button

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { AlertCircle, Check, LoaderCircle, Search, Save, Wifi, WifiOff, X } from 'lucide-react';
+import { AlertCircle, Check, LoaderCircle, Plus, Search, Save, Wifi, WifiOff, X } from 'lucide-react';
 import { useAppStore } from '../store/device-store';
 import { RoomControls } from '../components/RoomControls';
 import { SettingsDeviceCard } from '../components/SettingsDeviceCard';
@@ -376,7 +376,7 @@ export function SettingsPage() {
                 }}
                 className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-400"
               >
-                <X size={16} className={showDeviceForm ? 'rotate-45' : ''} />
+                {showDeviceForm ? <X size={16} /> : <Plus size={16} />}
                 {showDeviceForm ? 'Close' : 'Add device'}
               </button>
             </div>
@@ -468,7 +468,7 @@ export function SettingsPage() {
                 <Save size={15} /> {busyAction === 'save' ? 'Saving…' : editingId ? 'Save changes' : 'Add device'}
               </button>
             </div>
-          </form>
+          </form>}
 
           {discovered.length > 0 && (
             <div className="space-y-2">
@@ -548,8 +548,10 @@ export function SettingsPage() {
             </div>
           )}
         </section>
+        )}
 
-        <section aria-labelledby="preferences-heading" className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+        {activeTab === 'preferences' && (
+        <section aria-labelledby="preferences-heading" className="settings-panel space-y-4">
           <div>
             <h2 id="preferences-heading" className="text-lg font-medium">Application preferences</h2>
             <p className="text-sm text-slate-400">Changes are applied when you save.</p>
@@ -602,6 +604,7 @@ export function SettingsPage() {
             </div>
           </div>
         </section>
+        )}
       </div>
     </div>
   );

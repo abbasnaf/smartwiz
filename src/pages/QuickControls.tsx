@@ -93,11 +93,10 @@ export function QuickControls() {
           </>
         ) : (
           <>
-            <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-4">
+            <div className="flex items-center justify-between gap-3 border-b border-white/[0.08] px-4 py-3">
               <div>
-                <div className="text-sm text-slate-400">WiZ Controller</div>
                 <h1 className="text-lg font-semibold">Devices</h1>
-                <div className="mt-1 text-xs text-slate-400">
+                <div className="mt-0.5 text-xs text-slate-400">
                   {snapshots.filter((item) => item.status === 'connected').length} of {snapshots.length} connected
                 </div>
               </div>

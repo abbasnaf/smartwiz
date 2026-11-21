@@ -75,7 +75,7 @@ export function SettingsDeviceCard({
   const lastSeen = snapshot.lastUpdatedAt ?? snapshot.config.lastSeenAt;
 
   return (
-    <article className="space-y-3 rounded-xl border border-white/10 bg-slate-900/40 p-3">
+    <article className="space-y-3 rounded-xl border border-white/[0.08] bg-slate-900/30 p-3">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
